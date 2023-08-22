@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=egde"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="style.css"/>
+
+    
+    <title>Resume Generator</title>    
+  </head>
+
+  <body>
+
+    <div class="container" id="resume-form">
+
+        <h1 class="text-center my-2">Automatic Resume Generator</h1>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h4>Personal Information</h4>
+
+                <div class="form group mt-2">
+                    <label for="nameField">Name</label>
+                    <input
+                     type="text" 
+                     id="nameField"
+                     placeholder="Enter here" 
+                     class="form-control"
+                     />
+                </div>
+
+                <div class="form group mt-2">
+                    <label for="contactField">Contact</label>
+                    <input
+                     type="text" 
+                     id="contactField"
+                     placeholder="Enter here" 
+                     class="form-control"
+                     />
+                </div>
+
+                <div class="form group mt-2">
+                    <label for="addressField">Address</label>
+                    <textarea 
+                     id="addressField"
+                     placeholder="Enter here" 
+                     class="form-control"
+                     rows="4"
+                     ></textarea>                    
+                    </div>
+
+                    <p class="text-secondary mt-2">Important Links</p>
+
+
+                    <div class="form group mt-2">
+                        <label for="emailField">Email</label>
+                        <input
+                         type="text" 
+                         id="emailField"
+                         placeholder="Enter here" 
+                         class="form-control"
+                         />
+                    </div>
+
+
+
+                    <div class="form group mt-2">
+                        <label for="githubField">GitHub</label>
+                        <input
+                         type="text" 
+                         id="githubField"
+                         placeholder="Enter here" 
+                         class="form-control"
+                         />
+                    </div>
+
+
+
+                    <div class="form group mt-2">
+                        <label for="linkedinField">LinkedIn</label>
+                        <input
+                         type="text" 
+                         id="linkedinField"
+                         placeholder="Enter here" 
+                         class="form-control"
+                         />
+                    </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <h4>Professional Information</h4 >
+
+                    <div class="form group mt-2">
+                        <label for="summaryField">Professional Summary</label>
+                        <textarea 
+                         id="summaryField"
+                         placeholder="Enter here" 
+                         class="form-control"
+                         rows="4"
+                         ></textarea>                    
+                        </div>
+
+
+
+                    <div class="form group mt-2" id="we">
+                         <label for="">Work Experience</label>
+                         <textarea 
+                         placeholder="Enter here" 
+                         class="form-control weField"
+                         ></textarea>     
+
+
+                         
+                        <div class="container text-center mt-2" id="weAddButton">
+                            <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+
+                        </div>
+                        </div>
+
+                    <div class="form group mt-2" id="aq">
+                         <label for="">Academic Qualification</label>
+                         <textarea 
+                         placeholder="Enter here" 
+                         class="form-control aqField"
+                         ></textarea>     
+                            
+                         <div class="container text-center mt-2"id="aqAddButton">
+                             <button onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+   
+                         </div>
+                         </div>
+                         
+                     <div class="form group mt-2" id="sk">
+                         <label for="">Skills</label>
+                         <textarea 
+                         placeholder="Enter here" 
+                         class="form-control skField"
+                         ></textarea>     
+                               
+                        <div class="container text-center mt-2"id="skAddButton">
+                            <button onclick="addNewSKField()" class="btn btn-primary btn-sm">Add</button>
+      
+                        </div>
+                        </div>         
+
+
+
+                      
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="container text-center mt-3">
+            <button onclick="generateResume()" class="btn btn-primary btn-lg">
+                Generate Resume
+            </button>
+        </div>
+
+
+
+
+
+
+    </div>
+
+  
+
+<div class="container" id="resume-template">
+    <div class="row">
+        <div class="col-md-4 text-center py-4 background">
+
+            <img 
+            src="https://campussafetyconference.com/wp-content/uploads/2020/08/iStock-476085198.jpg"
+            alt=""
+            class="img-fluid myimg"
+            />
+
+            <div class="container">
+                <p id="nameT1">Name</p>
+                <p id="contactT">Contact will be displayed here</p>
+                <p id="addressT">This is a random generated address</p>
+
+                <hr>
+
+                <p>
+                    <a id="emailT" href="#1">sample link</a>
+                </p>
+
+                <p>
+                    <a id="githubT" href="#2">sample link</a>
+                </p>
+
+
+                <p>
+                    <a id="linkedinT" href="#3">sample link</a>
+                </p>
+
+
+            </div>
+        </div>
+        <div class="col-md-8 py-5">
+
+            <h1 id="nameT2" class="text-center" style="font-weight:980">Name
+            </h1>
+
+
+
+        <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Professional Summary</h3>
+            </div>
+            <div class="card-body">
+                <p id="summaryT">Sample Text
+                </p>
+            </div>            
+         </div>
+
+
+         <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Work Experience</h3>
+            </div>
+            <div class="card-body">
+                <ul id="weT">
+                    <li>Sample text</li>
+                </ul>
+                             
+            </div>            
+         </div>
+
+
+         <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Academic Qualification</h3>
+            </div>
+            <div class="card-body">
+                <ul id="aqT">
+                    <li>Sample text</li>
+                </ul>
+                             
+            </div>            
+         </div>
+
+
+         <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Skills</h3>
+            </div>
+            <div class="card-body">
+                <ul id="skillT">
+                    <li>Sample text</li>
+                </ul>
+                              
+            </div>            
+         </div>
+
+        <div class="container mt-3 text-center">
+            <button onclick="printresume()" class="btn background">
+                Print CV
+            </button>
+        </div>
+         </div>    
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>        
+  </body>
+</html>
