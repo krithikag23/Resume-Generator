@@ -79,28 +79,60 @@ function generateResume(){
    document.getElementById("summaryT").innerHTML=document.getElementById
    ("summaryField").value;
 
-   let wes= document.getElementsByClassName('weField');
+   let wes= document.getElementsByClassName("weField");
+   let str="";  
 
-   let str='';  
-   
    for(let e of wes){
     str= str+ `<li> ${e.value} </li>`;
    }
+   document.getElementById("weT").innerHTML= str;
 
-   document.getElementById('weT').innerHTML= str;
+
+
+
+
 
    let aqs=document.getElementsByClassName('aqField');
-
-   let str1='';
+   let str1="";
 
    for(let e of aqs){
-    str1+= `<li> ${e.value} </li>`;
+    str1=str1+`<li> ${e.value} </li>`;
    }
-
    document.getElementById('aqT').innerHTML= str1;
 
 
 
+   let sks=document.getElementsByClassName('skField');
+   let str2="";
+
+   for(e of sks){
+    str2=str2+ `<li> ${e.value} </li>`;
+   }
+   document.getElementById('skillT').innerHTML= str2;
+
+
+
+   let file=document.getElementById("imgField").files[0];
+   let reader= new FileReader();
+   reader.readAsDataURL(file);
+
+   reader.onloadend=function(){
+    document.getElementById("imgT").src=reader.result;
+   };
+
+
+
+
+
+
+   document.getElementById("resume-form").style.display="none";
+   document.getElementById("resume-template").style.display="block";
+
 
    
 }
+
+
+function printresume(){
+    window.print();
+   }
